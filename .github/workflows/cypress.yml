@@ -27,3 +27,26 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
+        continue-on-error: true
+
+      - name: Merge reports
+        if: always()
+        run: npx mochawesome-merge cypress/reports/mocha/*.json -o cypress/reports/output.json
+
+      - name: Generate HTML report
+        if: always()
+        run: npx marge cypress/reports/output.json --reportDir cypress/reports/html --inline
+
+      - name: Send report via email
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Cypress Test Report - ${{ github.repository }}"
+          to: ${{ secrets.EMAIL_TO }}
+          from: Cypress CI
+          body: "Automated Cypress test report attached. Triggered by push to ${{ github.ref_name }}."
+          attachments: cypress/reports/html/**/output.html
