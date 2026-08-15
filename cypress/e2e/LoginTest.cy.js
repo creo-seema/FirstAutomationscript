@@ -7,7 +7,7 @@ describe('Login to the application', () => {
     const ln =  new Login();
     ln.setUserName("standard_user");
     ln.setPassword("secret_sauce");
-    ln.clickLogin();
+    ln.clickLogin() ;
 
   })
 })
