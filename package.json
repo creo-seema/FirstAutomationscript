@@ -12,16 +12,13 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
-    "report:merge": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/output.json",
-    "report:generate": "marge cypress/reports/output.json --reportDir cypress/reports/html"
+    "cy:parallel": "cypress-parallel -d cypress/e2e/ -t 2 -s test"
   },
   "dependencies": {
-    "cypress": "^15.20.1",
-    "cypress-parallel": "^0.15.0"
+    "cypress": "^15.20.1"
   },
   "devDependencies": {
-    "mochawesome": "^8.0.1",
-    "mochawesome-merge": "^5.1.1",
-    "mochawesome-report-generator": "^6.3.2"
+    "cypress-mochawesome-reporter": "^5.0.0",
+    "cypress-parallel": "^0.15.0"
   }
 }
