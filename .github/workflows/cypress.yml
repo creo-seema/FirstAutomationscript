@@ -8,6 +8,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -52,6 +57,17 @@ jobs:
           name: cypress-report
           path: cypress/reports/html
 
+      - name: Upload Pages artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: cypress/reports/html
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        id: deployment
+        uses: actions/deploy-pages@v4
+
       - name: Notify Microsoft Teams
         if: always()
         run: |
@@ -74,7 +90,7 @@ jobs:
                   ]}
                 ],
                 "actions": [
-                  { "type": "Action.OpenUrl", "title": "View Full Report", "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" }
+                  { "type": "Action.OpenUrl", "title": "View Full Report", "url": "${{ steps.deployment.outputs.page_url }}" }
                 ]
               }
             }]
