@@ -6,12 +6,20 @@ class Checkout {
         cy.get('#continue').click();
     }
 
+    clickContinue() {
+        cy.get('#continue').click();
+    }
+
     finishOrder() {
         cy.get('#finish').click();
     }
 
     verifyOrderComplete() {
         cy.get('.complete-header').should('have.text', 'Thank you for your order!');
+    }
+
+    getErrorMessage() {
+        return cy.get('[data-test="error"]');
     }
 }
 
