@@ -112,7 +112,7 @@ No manual merge/generate steps required — reporting is fully automatic via the
 
 **Trigger:**
 - Every `push` or `pull request` to the `main` branch
-- On a schedule — automatically every 2 hours (`0 */2 * * *`), providing continuous regression coverage even without new commits
+- On a schedule — automatically every 2 hours, aligned to IST (`30 0,2,4,6,8,10,12,14,16,18,20,22 * * *` UTC → 6 AM, 8 AM, 10 AM, 12 PM, 2 PM, 4 PM, 6 PM, 8 PM, 10 PM, 12 AM, 2 AM, 4 AM IST), providing continuous regression coverage even without new commits
 
 **Pipeline steps:**
 1. Checkout code
