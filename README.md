@@ -110,7 +110,9 @@ No manual merge/generate steps required — reporting is fully automatic via the
 
 ## CI/CD Pipeline (GitHub Actions)
 
-**Trigger:** Every `push` or `pull request` to the `main` branch.
+**Trigger:**
+- Every `push` or `pull request` to the `main` branch
+- On a schedule — automatically every 2 hours (`0 */2 * * *`), providing continuous regression coverage even without new commits
 
 **Pipeline steps:**
 1. Checkout code
