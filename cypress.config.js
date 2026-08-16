@@ -9,6 +9,7 @@ module.exports = defineConfig({
     overwrite: false,
     html: true,
     json: true,
+    saveJson: true,
     quiet: true,
   },
   e2e: {

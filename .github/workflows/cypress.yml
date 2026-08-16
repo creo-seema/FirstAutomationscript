@@ -29,6 +29,22 @@ jobs:
           browser: chrome
         continue-on-error: true
 
+      - name: Extract test results
+        if: always()
+        id: stats
+        run: |
+          JSON_FILE="cypress/reports/html/index.json"
+          TOTAL=$(jq '.stats.tests' "$JSON_FILE")
+          PASSING=$(jq '.stats.passes' "$JSON_FILE")
+          FAILING=$(jq '.stats.failures' "$JSON_FILE")
+          PENDING=$(jq '.stats.pending' "$JSON_FILE")
+          SUCCESS=$(jq '.stats.passPercent' "$JSON_FILE" | cut -d. -f1)
+          echo "total=$TOTAL" >> $GITHUB_OUTPUT
+          echo "passing=$PASSING" >> $GITHUB_OUTPUT
+          echo "failing=$FAILING" >> $GITHUB_OUTPUT
+          echo "pending=$PENDING" >> $GITHUB_OUTPUT
+          echo "success=$SUCCESS" >> $GITHUB_OUTPUT
+
       - name: Upload report as artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,11 +64,17 @@ jobs:
                 "type": "AdaptiveCard",
                 "version": "1.4",
                 "body": [
-                  { "type": "TextBlock", "text": "Cypress Test Report", "weight": "bolder", "size": "medium" },
-                  { "type": "TextBlock", "text": "Repo: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nStatus: ${{ job.status }}", "wrap": true }
+                  { "type": "TextBlock", "text": "Cypress Test Report - ${{ github.repository }}", "weight": "bolder", "size": "medium" },
+                  { "type": "FactSet", "facts": [
+                    { "title": "Total Tests:", "value": "${{ steps.stats.outputs.total }}" },
+                    { "title": "Passing Tests:", "value": "${{ steps.stats.outputs.passing }}" },
+                    { "title": "Failing Tests:", "value": "${{ steps.stats.outputs.failing }}" },
+                    { "title": "Pending Tests:", "value": "${{ steps.stats.outputs.pending }}" },
+                    { "title": "Success:", "value": "${{ steps.stats.outputs.success }}%" }
+                  ]}
                 ],
                 "actions": [
-                  { "type": "Action.OpenUrl", "title": "View Run & Download Report", "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" }
+                  { "type": "Action.OpenUrl", "title": "View Full Report", "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" }
                 ]
               }
             }]
