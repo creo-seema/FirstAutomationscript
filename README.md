@@ -112,6 +112,7 @@ On completion of every pipeline run (pass or fail), a message is posted automati
 
 This closes the loop — the team is notified the moment a run finishes, without needing to check GitHub manually.
 
+
 ---
 
 ## Parallel Execution
@@ -134,3 +135,4 @@ Test specs can be executed in parallel using `cypress-parallel`, distributing sp
 
 - Expand test coverage (negative login scenarios, multiple products, different user personas provided by SauceDemo)
 - Add cross-browser execution (Chrome, Firefox, Edge)
+
