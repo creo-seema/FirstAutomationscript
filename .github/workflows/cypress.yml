@@ -22,6 +22,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Clean old reports (safety)
+        run: rm -rf cypress/reports
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -40,7 +43,8 @@ jobs:
         if: always()
         id: stats
         run: |
-          JSON_FILE="cypress/reports/html/index.json"
+          JSON_FILE=$(ls -t cypress/reports/html/index*.json | head -n 1)
+          echo "Using file: $JSON_FILE"
           TOTAL=$(jq '.stats.tests' "$JSON_FILE")
           PASSING=$(jq '.stats.passes' "$JSON_FILE")
           FAILING=$(jq '.stats.failures' "$JSON_FILE")
