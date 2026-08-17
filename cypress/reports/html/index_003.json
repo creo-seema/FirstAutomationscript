@@ -1,0 +1,493 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 11,
+    "passes": 11,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 11,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2026-08-17T11:34:26.367Z",
+    "end": "2026-08-17T11:34:59.599Z",
+    "duration": 33232
+  },
+  "results": [
+    {
+      "uuid": "d80d709b-38be-44ce-a830-812d60856ec3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cart-management.cy.js",
+      "file": "cypress\\e2e\\cart-management.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2e29ef93-b686-4736-adb1-8ec36e7dac1a",
+          "title": "Cart Management",
+          "fullFile": "cypress\\e2e\\cart-management.cy.js",
+          "file": "cypress\\e2e\\cart-management.cy.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "adds Sauce Labs Bike Light to cart and removes it",
+              "fullTitle": "Cart Management adds Sauce Labs Bike Light to cart and removes it",
+              "timedOut": null,
+              "duration": 1582,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const inventory = new _Inventory.default();\ninventory.addBikeLightToCart();\ninventory.getCartBadgeCount().should('have.text', '1');\ninventory.removeBikeLightFromCart();\ncy.get('.shopping_cart_badge').should('not.exist');",
+              "err": {},
+              "uuid": "17b26817-a956-4043-8e2d-3760b2869e57",
+              "parentUUID": "2e29ef93-b686-4736-adb1-8ec36e7dac1a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "17b26817-a956-4043-8e2d-3760b2869e57"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1582,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "967b7bb7-0962-4b47-b9bc-9b4190b5a255",
+      "title": "",
+      "fullFile": "cypress\\e2e\\checkout-negative.cy.js",
+      "file": "cypress\\e2e\\checkout-negative.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fb79985b-f05a-4168-bb1d-0384d077a18e",
+          "title": "Checkout - Negative Scenarios",
+          "fullFile": "cypress\\e2e\\checkout-negative.cy.js",
+          "file": "cypress\\e2e\\checkout-negative.cy.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "shows error when first name is missing",
+              "fullTitle": "Checkout - Negative Scenarios shows error when first name is missing",
+              "timedOut": null,
+              "duration": 1822,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const checkout = new _Checkout.default();\ncy.get('#last-name').type('Bhardwaj');\ncy.get('#postal-code').type('411001');\ncheckout.clickContinue();\ncheckout.getErrorMessage().should('contain.text', 'First Name is required');",
+              "err": {},
+              "uuid": "50664ea6-543f-442d-a6b2-cc51303d2075",
+              "parentUUID": "fb79985b-f05a-4168-bb1d-0384d077a18e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "shows error when postal code is missing",
+              "fullTitle": "Checkout - Negative Scenarios shows error when postal code is missing",
+              "timedOut": null,
+              "duration": 1611,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const checkout = new _Checkout.default();\ncy.get('#first-name').type('Seema');\ncy.get('#last-name').type('Bhardwaj');\ncheckout.clickContinue();\ncheckout.getErrorMessage().should('contain.text', 'Postal Code is required');",
+              "err": {},
+              "uuid": "898d853a-a668-4f0a-bb43-f80664fb1d92",
+              "parentUUID": "fb79985b-f05a-4168-bb1d-0384d077a18e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "shows error when all fields are empty",
+              "fullTitle": "Checkout - Negative Scenarios shows error when all fields are empty",
+              "timedOut": null,
+              "duration": 1114,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const checkout = new _Checkout.default();\ncheckout.clickContinue();\ncheckout.getErrorMessage().should('contain.text', 'First Name is required');",
+              "err": {},
+              "uuid": "9373ac41-60ab-4d1a-93b3-e396d955b63e",
+              "parentUUID": "fb79985b-f05a-4168-bb1d-0384d077a18e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "50664ea6-543f-442d-a6b2-cc51303d2075",
+            "898d853a-a668-4f0a-bb43-f80664fb1d92",
+            "9373ac41-60ab-4d1a-93b3-e396d955b63e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4547,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "7f86753d-f05c-4832-8143-af2c07d9b405",
+      "title": "",
+      "fullFile": "cypress\\e2e\\checkout.cy.js",
+      "file": "cypress\\e2e\\checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2a8943e1-50e8-47c6-81e4-1bed2dae9cb9",
+          "title": "Checkout flow",
+          "fullFile": "cypress\\e2e\\checkout.cy.js",
+          "file": "cypress\\e2e\\checkout.cy.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "adds a product to cart and completes checkout",
+              "fullTitle": "Checkout flow adds a product to cart and completes checkout",
+              "timedOut": null,
+              "duration": 2077,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('checkoutData').then(data => {\n  cy.visit('https://www.saucedemo.com/');\n  const ln = new _Login.default();\n  ln.setUserName(data.username);\n  ln.setPassword(data.password);\n  ln.clickLogin();\n  const inventory = new _Inventory.default();\n  inventory.addBackpackToCart();\n  inventory.goToCart();\n  const cart = new _Cart.default();\n  cart.verifyProductInCart('Sauce Labs Backpack');\n  cart.goToCheckout();\n  const checkout = new _Checkout.default();\n  checkout.enterInfo(data.firstName, data.lastName, data.postalCode);\n  checkout.finishOrder();\n  checkout.verifyOrderComplete();\n});",
+              "err": {},
+              "uuid": "c3b1ca55-7aaf-4c3c-89aa-d75a86b35c37",
+              "parentUUID": "2a8943e1-50e8-47c6-81e4-1bed2dae9cb9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c3b1ca55-7aaf-4c3c-89aa-d75a86b35c37"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2077,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "94857561-1563-419b-ba18-caaa332cf34c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login-negative.cy.js",
+      "file": "cypress\\e2e\\login-negative.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d9bd3310-b04c-49fb-bb49-f9fb94ccb877",
+          "title": "Login - Negative Scenarios",
+          "fullFile": "cypress\\e2e\\login-negative.cy.js",
+          "file": "cypress\\e2e\\login-negative.cy.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "shows error for invalid username",
+              "fullTitle": "Login - Negative Scenarios shows error for invalid username",
+              "timedOut": null,
+              "duration": 1015,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ln = new _Login.default();\nln.setUserName(\"invalid_user\");\nln.setPassword(\"secret_sauce\");\nln.clickLogin();\nln.getErrorMessage().should('contain.text', 'Username and password do not match');",
+              "err": {},
+              "uuid": "a6ef4b42-6564-469a-a5d1-4d49d120c830",
+              "parentUUID": "d9bd3310-b04c-49fb-bb49-f9fb94ccb877",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "shows error for invalid password",
+              "fullTitle": "Login - Negative Scenarios shows error for invalid password",
+              "timedOut": null,
+              "duration": 804,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ln = new _Login.default();\nln.setUserName(\"standard_user\");\nln.setPassword(\"wrong_password\");\nln.clickLogin();\nln.getErrorMessage().should('contain.text', 'Username and password do not match');",
+              "err": {},
+              "uuid": "aa47319b-1360-4e0f-80b1-bfb48c3d29ab",
+              "parentUUID": "d9bd3310-b04c-49fb-bb49-f9fb94ccb877",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "shows error for locked out user",
+              "fullTitle": "Login - Negative Scenarios shows error for locked out user",
+              "timedOut": null,
+              "duration": 797,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ln = new _Login.default();\nln.setUserName(\"locked_out_user\");\nln.setPassword(\"secret_sauce\");\nln.clickLogin();\nln.getErrorMessage().should('contain.text', 'locked out');",
+              "err": {},
+              "uuid": "5ef0a5f0-4b3f-4633-b899-dc6e0fecabee",
+              "parentUUID": "d9bd3310-b04c-49fb-bb49-f9fb94ccb877",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "shows error for empty credentials",
+              "fullTitle": "Login - Negative Scenarios shows error for empty credentials",
+              "timedOut": null,
+              "duration": 193,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ln = new _Login.default();\nln.clickLogin();\nln.getErrorMessage().should('contain.text', 'Username is required');",
+              "err": {},
+              "uuid": "8243814b-558e-4bdd-9376-aa5cc245679a",
+              "parentUUID": "d9bd3310-b04c-49fb-bb49-f9fb94ccb877",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a6ef4b42-6564-469a-a5d1-4d49d120c830",
+            "aa47319b-1360-4e0f-80b1-bfb48c3d29ab",
+            "5ef0a5f0-4b3f-4633-b899-dc6e0fecabee",
+            "8243814b-558e-4bdd-9376-aa5cc245679a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2809,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "1a6beee5-a726-4691-8bc8-45f2e9115f87",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e9d28511-397a-4446-a475-fa70192d48ac",
+          "title": "Login to the application",
+          "fullFile": "cypress\\e2e\\login.cy.js",
+          "file": "cypress\\e2e\\login.cy.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "launch the application",
+              "fullTitle": "Login to the application launch the application",
+              "timedOut": null,
+              "duration": 1351,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('checkoutData').then(data => {\n  cy.visit('https://www.saucedemo.com/');\n  const ln = new _Login.default();\n  ln.setUserName(data.username);\n  ln.setPassword(data.password);\n  ln.clickLogin();\n});",
+              "err": {},
+              "uuid": "36a1b97d-e3ac-4647-9ff3-6ae189b6fd4e",
+              "parentUUID": "e9d28511-397a-4446-a475-fa70192d48ac",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "36a1b97d-e3ac-4647-9ff3-6ae189b6fd4e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1351,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "5c6fa319-376a-4e60-81f7-f5a6a833bd24",
+      "title": "",
+      "fullFile": "cypress\\e2e\\product-sort.cy.js",
+      "file": "cypress\\e2e\\product-sort.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "978dca9b-0f63-4ca4-af6b-91c84527f4d0",
+          "title": "Product Sorting",
+          "fullFile": "cypress\\e2e\\product-sort.cy.js",
+          "file": "cypress\\e2e\\product-sort.cy.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "sorts products by price: high to low",
+              "fullTitle": "Product Sorting sorts products by price: high to low",
+              "timedOut": null,
+              "duration": 1120,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const inventory = new _Inventory.default();\ninventory.sortProducts('hilo');\ninventory.getAllProductPrices().then($prices => {\n  const prices = [...$prices].map(el => parseFloat(el.innerText.replace('$', '')));\n  const sortedDesc = [...prices].sort((a, b) => b - a);\n  expect(prices).to.deep.equal(sortedDesc);\n});",
+              "err": {},
+              "uuid": "0a19ba2c-392e-4291-aaee-ae1ed5fd6be6",
+              "parentUUID": "978dca9b-0f63-4ca4-af6b-91c84527f4d0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0a19ba2c-392e-4291-aaee-ae1ed5fd6be6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1120,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\html\\.jsons",
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "saveJson": true,
+        "quiet": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

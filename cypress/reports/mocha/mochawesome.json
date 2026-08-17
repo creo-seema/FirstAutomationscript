@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-14T20:54:28.758Z",
+    "end": "2026-08-14T20:54:33.567Z",
+    "duration": 4809,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ff799f5-fbd1-425c-ad17-e3e2fdc44a93",
+      "title": "",
+      "fullFile": "cypress\\e2e\\LoginTest.cy.js",
+      "file": "cypress\\e2e\\LoginTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c1a4f84-3cf0-47c1-956b-bf8bd9e6b5b7",
+          "title": "Login to the application",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "launch the application",
+              "fullTitle": "Login to the application launch the application",
+              "timedOut": null,
+              "duration": 1967,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/');\nconst ln = new _Login.default();\nln.setUserName(\"standard_user\");\nln.setPassword(\"secret_sauce\");\nln.clickLogin();",
+              "err": {},
+              "uuid": "17761632-eb68-4456-9c65-0db60fb11f4b",
+              "parentUUID": "9c1a4f84-3cf0-47c1-956b-bf8bd9e6b5b7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "17761632-eb68-4456-9c65-0db60fb11f4b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1967,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

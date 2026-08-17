@@ -1,0 +1,24 @@
+{
+  "activities": [
+    {
+      "title": "Gym",
+      "status": "pending"
+    },
+    {
+      "title": "Study",
+      "status": "pending"
+    },
+    {
+      "title": "Complete Cypress task",
+      "status": "pending"
+    },
+     {
+      "title": "Shifting the room",
+      "status": "pending"
+    },
+     {
+      "title": "Today'company task",
+      "status": "pending"
+    }
+  ]
+}

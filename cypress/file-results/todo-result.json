@@ -1,0 +1,24 @@
+{
+  "activities": [
+    {
+      "title": "Gym",
+      "status": "added"
+    },
+    {
+      "title": "Study",
+      "status": "added"
+    },
+    {
+      "title": "Complete Cypress task",
+      "status": "completed"
+    },
+    {
+      "title": "Shifting the room",
+      "status": "completed"
+    },
+    {
+      "title": "Today'company task",
+      "status": "completed"
+    }
+  ]
+}
